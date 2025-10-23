@@ -1050,7 +1050,7 @@
 ---
 
 ## [78] – Domain_Model_UML: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the Domain_Model_UML using the docs/requirements/notes/Domain_Model_UML_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/Domain_Model_UML_Applicable_Requirements.md; each referenced requirement is reflected.
