@@ -1,0 +1,504 @@
+{
+  "Business Requirements": [
+    {
+      "id": "BR-01",
+      "text": "Demonstrate realistic national-scale healthcare workload simulation so the platform exercises SRE patterns under realistic load."
+    },
+    {
+      "id": "BR-02",
+      "text": "Prove the platform operates safely without real PHI by using synthetic, pseudonymized data that behaves like production data."
+    },
+    {
+      "id": "BR-03",
+      "text": "Prove horizontal scalability without redesign by scaling from single-node to multi-node Kubernetes via configuration only."
+    },
+    {
+      "id": "BR-04",
+      "text": "Demonstrate shard-based routing and locality enforcement driven by patient identity."
+    },
+    {
+      "id": "BR-05",
+      "text": "Demonstrate provable failure resilience and self-healing during arbitrary pod or replica failures."
+    },
+    {
+      "id": "BR-06",
+      "text": "Demonstrate full observability maturity (MELTP) with zero orphan execution and Grafana visualization."
+    },
+    {
+      "id": "BR-07",
+      "text": "Prove auditable accountability for every state change tied to user and request identifiers."
+    },
+    {
+      "id": "BR-08",
+      "text": "Demonstrate multi-role security boundaries including patient, clinician, admin, and SRE operator roles."
+    },
+    {
+      "id": "BR-09",
+      "text": "Enable continuous GitOps-based reproducibility of the entire environment from source control."
+    },
+    {
+      "id": "BR-10",
+      "text": "Demonstrate SLO-ready reliability metrics to enable immediate SLO definitions."
+    },
+    {
+      "id": "BR-11",
+      "text": "Demonstrate controlled chaos and failure injection readiness as a first-class capability."
+    },
+    {
+      "id": "BR-12",
+      "text": "Enable measurable operator learning and assessment through observable behaviors."
+    },
+    {
+      "id": "BR-13",
+      "text": "Support observability-driven debugging that correlates traces, logs, and metrics to root cause."
+    },
+    {
+      "id": "BR-14",
+      "text": "Prove event-driven consistency and traceable data flow via domain events."
+    },
+    {
+      "id": "BR-15",
+      "text": "Teach failure visibility by surfacing and preserving evidence of failures."
+    },
+    {
+      "id": "BR-16",
+      "text": "Make the system educationally narratable end-to-end for humans and AI."
+    }
+  ],
+  "Functional Requirements": [
+    {
+      "id": "FR-01.1",
+      "text": "Generate Mockaroo-based seed datasets covering patients, providers, facilities, encounters, diagnoses, procedures, medications, and claims."
+    },
+    {
+      "id": "FR-01.2",
+      "text": "Simulate patient, clinician, and admin user profiles with tunable arrival rates, concurrency, and think time."
+    },
+    {
+      "id": "FR-01.3",
+      "text": "Provide role-specific operation mixes across read/write loads for each user profile."
+    },
+    {
+      "id": "FR-01.4",
+      "text": "Support traffic shape presets such as clinic peaks, night lulls, and billing bursts."
+    },
+    {
+      "id": "FR-01.5",
+      "text": "Offer a single YAML profile to define dataset size, shard counts, and traffic patterns."
+    },
+    {
+      "id": "FR-02.1",
+      "text": "Ensure all seed data is synthetic, pseudonymized, and non-reversible."
+    },
+    {
+      "id": "FR-02.2",
+      "text": "Block ingestion of external identifiers beyond the defined synthetic schema."
+    },
+    {
+      "id": "FR-02.3",
+      "text": "Exclude or mask sensitive fields in exports and logs per allowlist."
+    },
+    {
+      "id": "FR-02.4",
+      "text": "Provide redaction for audit/event payloads when fields are unnecessary for troubleshooting."
+    },
+    {
+      "id": "FR-03.1",
+      "text": "Keep APIs stateless and horizontally scalable via Kubernetes HPA."
+    },
+    {
+      "id": "FR-03.2",
+      "text": "Scale the data layer via sharding and SQL Server AG read replicas without schema changes."
+    },
+    {
+      "id": "FR-03.3",
+      "text": "Externalize configuration (replicas, shard counts, listener endpoints) via environment/Helm values."
+    },
+    {
+      "id": "FR-03.4",
+      "text": "Maintain idempotent writes so retries at scale remain safe."
+    },
+    {
+      "id": "FR-04.1",
+      "text": "Route requests deterministically by patient_id to the correct shard listener."
+    },
+    {
+      "id": "FR-04.2",
+      "text": "Support shard map updates without downtime through hot reload or versioned config."
+    },
+    {
+      "id": "FR-04.3",
+      "text": "Prefer read replicas for reads and target primary for writes."
+    },
+    {
+      "id": "FR-04.4",
+      "text": "Expose a health endpoint verifying shard reachability and listener status."
+    },
+    {
+      "id": "FR-05.1",
+      "text": "Continue serving traffic during arbitrary loss of a single API pod."
+    },
+    {
+      "id": "FR-05.2",
+      "text": "Maintain read capability during primary failover and recover writes automatically."
+    },
+    {
+      "id": "FR-05.3",
+      "text": "Retry transient database errors with exponential backoff and timeouts."
+    },
+    {
+      "id": "FR-05.4",
+      "text": "Provide chaos interfaces for pod kills, network delay, failover, and replica draining."
+    },
+    {
+      "id": "FR-05.5",
+      "text": "Publish failover events into observability for correlation."
+    },
+    {
+      "id": "FR-06.1",
+      "text": "Emit traces with unique trace_ids propagated across services and database spans."
+    },
+    {
+      "id": "FR-06.2",
+      "text": "Include trace, span, request, user, and role identifiers in structured logs."
+    },
+    {
+      "id": "FR-06.3",
+      "text": "Capture RED metrics per endpoint and shard plus database metrics for waits and roles."
+    },
+    {
+      "id": "FR-06.4",
+      "text": "Capture CPU and memory profiles with symbolized stacks during load."
+    },
+    {
+      "id": "FR-06.5",
+      "text": "Ensure every code path produces at least one MELTP observability signal."
+    },
+    {
+      "id": "FR-07.1",
+      "text": "Produce AUDIT_EVENT records for each write with actor, action, object, before/after, and timestamps."
+    },
+    {
+      "id": "FR-07.2",
+      "text": "Enable system-versioned (temporal) history on core tables."
+    },
+    {
+      "id": "FR-07.3",
+      "text": "Allow querying audit and temporal history by request_id and user_id."
+    },
+    {
+      "id": "FR-07.4",
+      "text": "Reject write requests lacking user_id and request_id context."
+    },
+    {
+      "id": "FR-08.1",
+      "text": "Implement patient, clinician, admin, and SRE roles with dedicated privileges."
+    },
+    {
+      "id": "FR-08.2",
+      "text": "Enforce RLS for patient-only and facility-scoped data visibility."
+    },
+    {
+      "id": "FR-08.3",
+      "text": "Restrict admin CRUD to application procedures while SRE has secured full access."
+    },
+    {
+      "id": "FR-08.4",
+      "text": "Populate session context from JWT claims per request."
+    },
+    {
+      "id": "FR-09.1",
+      "text": "Keep manifests, migrations, and configs in Git with versioned environments."
+    },
+    {
+      "id": "FR-09.2",
+      "text": "Enable one-command (or Argo CD sync) environment rebuilds."
+    },
+    {
+      "id": "FR-09.3",
+      "text": "Use idempotent forward-only database migrations with rollback scripts when feasible."
+    },
+    {
+      "id": "FR-09.4",
+      "text": "Generate seed/demo data deterministically via pinned seeds and versions."
+    },
+    {
+      "id": "FR-10.1",
+      "text": "Expose golden signals (availability, latency, error rate) for each API and shard."
+    },
+    {
+      "id": "FR-10.2",
+      "text": "Emit SLO-window rollups and error-budget burn rates."
+    },
+    {
+      "id": "FR-10.3",
+      "text": "Reference SLOs in alerts and trigger fast/slow burn thresholds."
+    },
+    {
+      "id": "FR-11.1",
+      "text": "Provide SRE-only chaos interface for pod kill, node taint, failover, and latency tests."
+    },
+    {
+      "id": "FR-11.2",
+      "text": "Annotate Grafana/Tempo during chaos runs to correlate experiments."
+    },
+    {
+      "id": "FR-11.3",
+      "text": "Gate chaos operations to SRE role and log them in audit."
+    },
+    {
+      "id": "FR-12.1",
+      "text": "Supply guided scenarios requiring traces/logs to resolve issues."
+    },
+    {
+      "id": "FR-12.2",
+      "text": "Offer reviewer mode with checklists and expected signals."
+    },
+    {
+      "id": "FR-12.3",
+      "text": "Export anonymized operator performance metrics (time-to-hypothesis, time-to-fix)."
+    },
+    {
+      "id": "FR-13.1",
+      "text": "Provide Grafana drill-down from SLO panel to trace exemplar to logs."
+    },
+    {
+      "id": "FR-13.2",
+      "text": "Include trace/audit links in error logs."
+    },
+    {
+      "id": "FR-13.3",
+      "text": "Surface database slow queries as traced spans with waits and query fingerprints."
+    },
+    {
+      "id": "FR-14.1",
+      "text": "Implement outbox pattern for every transactional write."
+    },
+    {
+      "id": "FR-14.2",
+      "text": "Process outbox/CDC streams idempotently to update read models."
+    },
+    {
+      "id": "FR-14.3",
+      "text": "Version event schemas, maintain backward compatibility, and handle dead letters."
+    },
+    {
+      "id": "FR-15.1",
+      "text": "Persist evidence of failures (stuck commands, projection lag, failed shard lookups)."
+    },
+    {
+      "id": "FR-15.2",
+      "text": "Expose dashboards for backlog depth, lag, retries, and dead-letter volume."
+    },
+    {
+      "id": "FR-15.3",
+      "text": "Limit automatic retries and quarantine to dead-letter with alerts when max retries hit."
+    },
+    {
+      "id": "FR-16.1",
+      "text": "Provide a request journey view across services, shard, events, and projections."
+    },
+    {
+      "id": "FR-16.2",
+      "text": "Offer data lineage queries combining temporal history and audit events."
+    },
+    {
+      "id": "FR-16.3",
+      "text": "Include narrative documentation and curl examples aligned with dashboards and traces."
+    },
+    {
+      "id": "FR-16.4",
+      "text": "Ensure public artifacts share consistent glossary terms and IDs."
+    },
+    {
+      "id": "FR-X.1",
+      "text": "Version all APIs, support JSON, and provide pagination/filtering/sorting for lists."
+    },
+    {
+      "id": "FR-X.2",
+      "text": "Make write endpoints idempotent via Idempotency-Key or natural keys."
+    },
+    {
+      "id": "FR-X.3",
+      "text": "Return structured problem details for validation errors and include request_id on server errors."
+    },
+    {
+      "id": "FR-X.4",
+      "text": "Provide sensible config defaults, override via env/Helm, and avoid hardcoded secrets."
+    },
+    {
+      "id": "FR-X.5",
+      "text": "Use UTC with ISO-8601 timestamps and align DB precision via datetime2."
+    },
+    {
+      "id": "FR-X.6",
+      "text": "Enforce referential integrity and prefer soft deletes where auditability matters."
+    },
+    {
+      "id": "FR-17.1",
+      "text": "Define retention policies for transactional tables, audit logs, and observability signals."
+    },
+    {
+      "id": "FR-17.2",
+      "text": "Support data purging/archiving after retention windows via versioned procedures."
+    },
+    {
+      "id": "FR-18.1",
+      "text": "Prevent destructive operations unless explicitly authorized and audited."
+    },
+    {
+      "id": "FR-18.2",
+      "text": "Provide dry-run modes for migrations, shard remaps, and chaos rollout staging."
+    }
+  ],
+  "Non-Functional Requirements": [
+    {
+      "id": "NFR-01",
+      "text": "Sustain \u226599.5% monthly availability (\u226599.9% multi-node) for edge-api and core-api."
+    },
+    {
+      "id": "NFR-02",
+      "text": "During SQL AG failover keep reads available (\u226430 s brownout) and recover writes within 60 s."
+    },
+    {
+      "id": "NFR-03",
+      "text": "Survive random single API pod kills without breaching availability SLO."
+    },
+    {
+      "id": "NFR-04",
+      "text": "Compute error budget burn over 28-day windows with fast/slow burn alerts at 2%/5% per hour/day."
+    },
+    {
+      "id": "NFR-05",
+      "text": "Provide \u226599.99% durability at the database level with synchronous replicas."
+    },
+    {
+      "id": "NFR-06",
+      "text": "Keep GET latency at p50 \u226450 ms, p95 \u2264200 ms, p99 \u2264400 ms under nominal load."
+    },
+    {
+      "id": "NFR-07",
+      "text": "Keep write latency at p50 \u226490 ms, p95 \u2264300 ms, p99 \u2264600 ms with synchronous audit outbox."
+    },
+    {
+      "id": "NFR-08",
+      "text": "Deliver reporting reads at p95 \u2264500 ms for patient scope and \u22642 s for facility scope."
+    },
+    {
+      "id": "NFR-09",
+      "text": "Achieve cold start to ready \u22648 s and warm restart \u22642 s for API containers."
+    },
+    {
+      "id": "NFR-10",
+      "text": "Drain command/outbox queues at \u2265500 msgs per minute per worker with idempotent processing."
+    },
+    {
+      "id": "NFR-11",
+      "text": "Support \u22651,000 RPS read-heavy or 200 RPS mixed workload, scaling linearly."
+    },
+    {
+      "id": "NFR-12",
+      "text": "Support \u22655 million patient records per shard without schema changes."
+    },
+    {
+      "id": "NFR-13",
+      "text": "Autoscale APIs between 1\u20135 replicas on CPU \u226560% or latency breach, scaling down after 5 idle minutes."
+    },
+    {
+      "id": "NFR-14",
+      "text": "Return HTTP 429 with Retry-After when queues exceed thresholds; avoid unbounded memory growth."
+    },
+    {
+      "id": "NFR-15",
+      "text": "Require JWT auth with \u226415-minute tokens and rotating signing keys."
+    },
+    {
+      "id": "NFR-16",
+      "text": "Enforce least-privilege authorization via RLS, SQL roles, and guarded SRE procedures."
+    },
+    {
+      "id": "NFR-17",
+      "text": "Keep secrets out of images/Git; use Kubernetes secrets and support key rotation."
+    },
+    {
+      "id": "NFR-18",
+      "text": "Exclude or mask sensitive personal fields in telemetry unless explicitly allow-listed."
+    },
+    {
+      "id": "NFR-19",
+      "text": "Retain audit/temporal history for \u226590 days (configurable to 365 days)."
+    },
+    {
+      "id": "NFR-20",
+      "text": "Maintain \u226595% trace coverage end-to-end even with sampling."
+    },
+    {
+      "id": "NFR-21",
+      "text": "Ensure 100% of logs are structured JSON with trace/span/request/user/role/shard data."
+    },
+    {
+      "id": "NFR-22",
+      "text": "Cap metrics label cardinality at \u22642,000 series per service to avoid TSDB issues."
+    },
+    {
+      "id": "NFR-23",
+      "text": "Enable continuous profiling every 10 s with \u22643% CPU overhead."
+    },
+    {
+      "id": "NFR-24",
+      "text": "Render Grafana dashboards within 3 s p95 and support trace jump-links via exemplars."
+    },
+    {
+      "id": "NFR-25",
+      "text": "Support rolling zero-downtime deploys with max unavailable 1 and online DB migrations."
+    },
+    {
+      "id": "NFR-26",
+      "text": "Provide at least one primary plus one synchronous replica per shard with failover \u226460 s."
+    },
+    {
+      "id": "NFR-27",
+      "text": "Use SSD-class storage with \u22653,000 IOPS per replica and separate WAL/log volumes."
+    },
+    {
+      "id": "NFR-28",
+      "text": "Reconcile cluster state from Git with drift detection \u22645 min and single-click rollbacks."
+    },
+    {
+      "id": "NFR-29",
+      "text": "Perform nightly full + 15 min log backups and verify restores weekly."
+    },
+    {
+      "id": "NFR-30",
+      "text": "Target RPO \u226415 min and RTO \u226430 min for single-shard incidents."
+    },
+    {
+      "id": "NFR-31",
+      "text": "Link each alert to runnable, up-to-date runbooks with verification and rollback steps."
+    },
+    {
+      "id": "NFR-32",
+      "text": "Track CPU/memory per request and synthetic cost per 1k requests in Grafana."
+    },
+    {
+      "id": "NFR-33",
+      "text": "Allow non-critical workers to scale to zero after 10 min idle with predictable cache expiry."
+    },
+    {
+      "id": "NFR-34",
+      "text": "Require SRE role, dry-run preview, and Grafana annotation for chaos experiments with defined blast radius/duration."
+    },
+    {
+      "id": "NFR-35",
+      "text": "Auto-restore replicas/policies post-experiment and log summaries with request IDs."
+    },
+    {
+      "id": "NFR-36",
+      "text": "Provide golden path workflows (feature creation, deploy, observe, debug) documented and enforced by defaults."
+    },
+    {
+      "id": "NFR-37",
+      "text": "Make observability artifacts self-documenting, linking dashboards/traces/logs to relevant docs automatically."
+    }
+  ]
+}

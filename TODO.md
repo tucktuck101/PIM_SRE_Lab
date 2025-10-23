@@ -541,7 +541,7 @@
 
 
 ## [39] – Design_Doc: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Design_Doc, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Design_Doc_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Design_Doc_Applicable_Requirements.md.
@@ -554,7 +554,7 @@
 ---
 
 ## [40] – Infrastructure_Architecture: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Infrastructure_Architecture, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Infrastructure_Architecture_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Infrastructure_Architecture_Applicable_Requirements.md.
@@ -567,7 +567,7 @@
 ---
 
 ## [41] – C4_L1_System_Context: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for C4_L1_System_Context, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/C4_L1_System_Context_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/C4_L1_System_Context_Applicable_Requirements.md.
@@ -580,7 +580,7 @@
 ---
 
 ## [42] – C4_L2_Containers: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for C4_L2_Containers, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/C4_L2_Containers_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/C4_L2_Containers_Applicable_Requirements.md.
@@ -593,7 +593,7 @@
 ---
 
 ## [43] – C4_L3_Components: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for C4_L3_Components, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/C4_L3_Components_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/C4_L3_Components_Applicable_Requirements.md.
@@ -606,7 +606,7 @@
 ---
 
 ## [44] – Runtime_Sequence_Catalog: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Runtime_Sequence_Catalog, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Runtime_Sequence_Catalog_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Runtime_Sequence_Catalog_Applicable_Requirements.md.
@@ -619,7 +619,7 @@
 ---
 
 ## [45] – Domain_Context_Map: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Domain_Context_Map, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Domain_Context_Map_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Domain_Context_Map_Applicable_Requirements.md.
@@ -632,7 +632,7 @@
 ---
 
 ## [46] – Domain_Model_UML: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Domain_Model_UML, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Domain_Model_UML_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Domain_Model_UML_Applicable_Requirements.md.
@@ -645,7 +645,7 @@
 ---
 
 ## [47] – Storage_Topology: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Storage_Topology, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Storage_Topology_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Storage_Topology_Applicable_Requirements.md.
@@ -658,7 +658,7 @@
 ---
 
 ## [48] – Event_Architecture: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Event_Architecture, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Event_Architecture_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Event_Architecture_Applicable_Requirements.md.
@@ -671,7 +671,7 @@
 ---
 
 ## [49] – API_Surface: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for API_Surface, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/API_Surface_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/API_Surface_Applicable_Requirements.md.
@@ -684,7 +684,7 @@
 ---
 
 ## [50] – Observability_Signal_Dictionary: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Observability_Signal_Dictionary, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Observability_Signal_Dictionary_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Observability_Signal_Dictionary_Applicable_Requirements.md.
@@ -697,7 +697,7 @@
 ---
 
 ## [51] – SLI_SLO_Measurement_Plan: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for SLI_SLO_Measurement_Plan, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/SLI_SLO_Measurement_Plan_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/SLI_SLO_Measurement_Plan_Applicable_Requirements.md.
@@ -710,7 +710,7 @@
 ---
 
 ## [52] – Availability_DR_Topology: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Availability_DR_Topology, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Availability_DR_Topology_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Availability_DR_Topology_Applicable_Requirements.md.
@@ -723,7 +723,7 @@
 ---
 
 ## [53] – Kubernetes_Topology: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Kubernetes_Topology, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Kubernetes_Topology_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Kubernetes_Topology_Applicable_Requirements.md.
@@ -736,7 +736,7 @@
 ---
 
 ## [54] – Release_Strategy: Read reqs & templates
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Review applicable requirements and templates for Release_Strategy, collect relevant BR/FR/NFR IDs with brief notes, and store them in docs/requirements/notes/Release_Strategy_Applicable_Requirements.md.
 **Acceptance Criteria:**  
 - Applicable BR/FR/NFR IDs summarized and saved in docs/requirements/notes/Release_Strategy_Applicable_Requirements.md.
@@ -750,7 +750,7 @@
 
 
 ## [55] – Design_Doc: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Design_Doc from docs/templates/00_Design_Doc_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Design_Doc matches the structure provided in docs/templates/00_Design_Doc_Template.md (front matter and sections populated as placeholders).
@@ -763,7 +763,7 @@
 ---
 
 ## [56] – Infrastructure_Architecture: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Infrastructure_Architecture from docs/templates/04_Infrastructure_Architecture_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Infrastructure_Architecture matches the structure provided in docs/templates/04_Infrastructure_Architecture_Template.md (front matter and sections populated as placeholders).
@@ -776,7 +776,7 @@
 ---
 
 ## [57] – C4_L1_System_Context: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the C4_L1_System_Context from docs/templates/05_C4_L1_System_Context_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - C4_L1_System_Context matches the structure provided in docs/templates/05_C4_L1_System_Context_Template.md (front matter and sections populated as placeholders).
@@ -789,7 +789,7 @@
 ---
 
 ## [58] – C4_L2_Containers: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the C4_L2_Containers from docs/templates/06_C4_L2_Containers_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - C4_L2_Containers matches the structure provided in docs/templates/06_C4_L2_Containers_Template.md (front matter and sections populated as placeholders).
@@ -802,7 +802,7 @@
 ---
 
 ## [59] – C4_L3_Components: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the C4_L3_Components from docs/templates/07_C4_L3_Components_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - C4_L3_Components matches the structure provided in docs/templates/07_C4_L3_Components_Template.md (front matter and sections populated as placeholders).
@@ -815,7 +815,7 @@
 ---
 
 ## [60] – Runtime_Sequence_Catalog: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Runtime_Sequence_Catalog from docs/templates/08_Runtime_Sequence_Catalog_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Runtime_Sequence_Catalog matches the structure provided in docs/templates/08_Runtime_Sequence_Catalog_Template.md (front matter and sections populated as placeholders).
@@ -828,7 +828,7 @@
 ---
 
 ## [61] – Domain_Context_Map: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Domain_Context_Map from docs/templates/09_Domain_Context_Map_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Domain_Context_Map matches the structure provided in docs/templates/09_Domain_Context_Map_Template.md (front matter and sections populated as placeholders).
@@ -841,7 +841,7 @@
 ---
 
 ## [62] – Domain_Model_UML: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Domain_Model_UML from docs/templates/10_Domain_Model_UML_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Domain_Model_UML matches the structure provided in docs/templates/10_Domain_Model_UML_Template.md (front matter and sections populated as placeholders).
@@ -854,7 +854,7 @@
 ---
 
 ## [63] – Storage_Topology: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Storage_Topology from docs/templates/11_Storage_Topology_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Storage_Topology matches the structure provided in docs/templates/11_Storage_Topology_Template.md (front matter and sections populated as placeholders).
@@ -867,7 +867,7 @@
 ---
 
 ## [64] – Event_Architecture: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Event_Architecture from docs/templates/12_Event_Architecture_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Event_Architecture matches the structure provided in docs/templates/12_Event_Architecture_Template.md (front matter and sections populated as placeholders).
@@ -880,7 +880,7 @@
 ---
 
 ## [65] – API_Surface: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the API_Surface from docs/templates/13_API_Surface_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - API_Surface matches the structure provided in docs/templates/13_API_Surface_Template.md (front matter and sections populated as placeholders).
@@ -893,7 +893,7 @@
 ---
 
 ## [66] – Observability_Signal_Dictionary: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Observability_Signal_Dictionary from docs/templates/14_Observability_Signal_Dictionary_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Observability_Signal_Dictionary matches the structure provided in docs/templates/14_Observability_Signal_Dictionary_Template.md (front matter and sections populated as placeholders).
@@ -906,7 +906,7 @@
 ---
 
 ## [67] – SLI_SLO_Measurement_Plan: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the SLI_SLO_Measurement_Plan from docs/templates/15_SLI_SLO_Measurement_Plan_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - SLI_SLO_Measurement_Plan matches the structure provided in docs/templates/15_SLI_SLO_Measurement_Plan_Template.md (front matter and sections populated as placeholders).
@@ -919,7 +919,7 @@
 ---
 
 ## [68] – Availability_DR_Topology: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Availability_DR_Topology from docs/templates/16_Availability_DR_Topology_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Availability_DR_Topology matches the structure provided in docs/templates/16_Availability_DR_Topology_Template.md (front matter and sections populated as placeholders).
@@ -932,7 +932,7 @@
 ---
 
 ## [69] – Kubernetes_Topology: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Kubernetes_Topology from docs/templates/17_Kubernetes_Topology_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Kubernetes_Topology matches the structure provided in docs/templates/17_Kubernetes_Topology_Template.md (front matter and sections populated as placeholders).
@@ -945,7 +945,7 @@
 ---
 
 ## [70] – Release_Strategy: Scaffold from template
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Initialize the Release_Strategy from docs/templates/18_Release_Strategy_Template.md. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Release_Strategy matches the structure provided in docs/templates/18_Release_Strategy_Template.md (front matter and sections populated as placeholders).
@@ -959,7 +959,7 @@
 
 
 ## [71] – Design_Doc: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the Design_Doc using the docs/requirements/notes/Design_Doc_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/Design_Doc_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -972,7 +972,7 @@
 ---
 
 ## [72] – Infrastructure_Architecture: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the Infrastructure_Architecture using the docs/requirements/notes/Infrastructure_Architecture_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/Infrastructure_Architecture_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -985,7 +985,7 @@
 ---
 
 ## [73] – C4_L1_System_Context: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the C4_L1_System_Context using the docs/requirements/notes/C4_L1_System_Context_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/C4_L1_System_Context_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -998,7 +998,7 @@
 ---
 
 ## [74] – C4_L2_Containers: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the C4_L2_Containers using the docs/requirements/notes/C4_L2_Containers_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/C4_L2_Containers_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -1011,7 +1011,7 @@
 ---
 
 ## [75] – C4_L3_Components: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the C4_L3_Components using the docs/requirements/notes/C4_L3_Components_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/C4_L3_Components_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -1024,7 +1024,7 @@
 ---
 
 ## [76] – Runtime_Sequence_Catalog: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the Runtime_Sequence_Catalog using the docs/requirements/notes/Runtime_Sequence_Catalog_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/Runtime_Sequence_Catalog_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -1037,7 +1037,7 @@
 ---
 
 ## [77] – Domain_Context_Map: Draft content from BR/FR/NFR
-**Status:** Pending
+**Status:** Ready to review
 **Goal:** Draft the Domain_Context_Map using the docs/requirements/notes/Domain_Context_Map_Applicable_Requirements.md summary, layering in business, functional, and non-functional requirements. If an architecture decision is made, record it using the 01_ADR_template.md file, add the new ADR under /docs/ADR/, and update the table in ADR_Index.md.
 **Acceptance Criteria:**  
 - Draft content aligns with the requirements listed in docs/requirements/notes/Domain_Context_Map_Applicable_Requirements.md; each referenced requirement is reflected.
@@ -1557,4 +1557,3 @@
 - 
 
 ---
-

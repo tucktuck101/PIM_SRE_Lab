@@ -1,0 +1,133 @@
+# Design_Doc Applicable Requirements
+
+This note captures the business, functional, and non-functional requirements that the Design Doc must address. Use it as the canonical reference while drafting and reviewing the Design Doc.
+
+## Business Requirements
+- **BR-01**: Demonstrate realistic national-scale healthcare workload simulation so the platform exercises SRE patterns under realistic load.
+- **BR-02**: Prove the platform operates safely without real PHI by using synthetic, pseudonymized data that behaves like production data.
+- **BR-03**: Prove horizontal scalability without redesign by scaling from single-node to multi-node Kubernetes via configuration only.
+- **BR-04**: Demonstrate shard-based routing and locality enforcement driven by patient identity.
+- **BR-05**: Demonstrate provable failure resilience and self-healing during arbitrary pod or replica failures.
+- **BR-06**: Demonstrate full observability maturity (MELTP) with zero orphan execution and Grafana visualization.
+- **BR-07**: Prove auditable accountability for every state change tied to user and request identifiers.
+- **BR-08**: Demonstrate multi-role security boundaries including patient, clinician, admin, and SRE operator roles.
+- **BR-09**: Enable continuous GitOps-based reproducibility of the entire environment from source control.
+- **BR-10**: Demonstrate SLO-ready reliability metrics to enable immediate SLO definitions.
+- **BR-11**: Demonstrate controlled chaos and failure injection readiness as a first-class capability.
+- **BR-12**: Enable measurable operator learning and assessment through observable behaviors.
+- **BR-13**: Support observability-driven debugging that correlates traces, logs, and metrics to root cause.
+- **BR-14**: Prove event-driven consistency and traceable data flow via domain events.
+- **BR-15**: Teach failure visibility by surfacing and preserving evidence of failures.
+- **BR-16**: Make the system educationally narratable end-to-end for humans and AI.
+
+## Functional Requirements
+- **FR-01.1**: Generate Mockaroo-based seed datasets covering patients, providers, facilities, encounters, diagnoses, procedures, medications, and claims.
+- **FR-01.2**: Simulate patient, clinician, and admin user profiles with tunable arrival rates, concurrency, and think time.
+- **FR-01.3**: Provide role-specific operation mixes across read/write loads for each user profile.
+- **FR-01.4**: Support traffic shape presets such as clinic peaks, night lulls, and billing bursts.
+- **FR-01.5**: Offer a single YAML profile to define dataset size, shard counts, and traffic patterns.
+- **FR-02.1**: Ensure all seed data is synthetic, pseudonymized, and non-reversible.
+- **FR-02.2**: Block ingestion of external identifiers beyond the defined synthetic schema.
+- **FR-02.3**: Exclude or mask sensitive fields in exports and logs per allowlist.
+- **FR-02.4**: Provide redaction for audit/event payloads when fields are unnecessary for troubleshooting.
+- **FR-03.1**: Keep APIs stateless and horizontally scalable via Kubernetes HPA.
+- **FR-03.2**: Scale the data layer via sharding and SQL Server AG read replicas without schema changes.
+- **FR-03.3**: Externalize configuration (replicas, shard counts, listener endpoints) via environment/Helm values.
+- **FR-03.4**: Maintain idempotent writes so retries at scale remain safe.
+- **FR-04.1**: Route requests deterministically by patient_id to the correct shard listener.
+- **FR-04.2**: Support shard map updates without downtime through hot reload or versioned config.
+- **FR-04.3**: Prefer read replicas for reads and target primary for writes.
+- **FR-04.4**: Expose a health endpoint verifying shard reachability and listener status.
+- **FR-05.1**: Continue serving traffic during arbitrary loss of a single API pod.
+- **FR-05.2**: Maintain read capability during primary failover and recover writes automatically.
+- **FR-05.3**: Retry transient database errors with exponential backoff and timeouts.
+- **FR-05.4**: Provide chaos interfaces for pod kills, network delay, failover, and replica draining.
+- **FR-05.5**: Publish failover events into observability for correlation.
+- **FR-06.1**: Emit traces with unique trace_ids propagated across services and database spans.
+- **FR-06.2**: Include trace, span, request, user, and role identifiers in structured logs.
+- **FR-06.3**: Capture RED metrics per endpoint and shard plus database metrics for waits and roles.
+- **FR-06.4**: Capture CPU and memory profiles with symbolized stacks during load.
+- **FR-06.5**: Ensure every code path produces at least one MELTP observability signal.
+- **FR-07.1**: Produce AUDIT_EVENT records for each write with actor, action, object, before/after, and timestamps.
+- **FR-07.2**: Enable system-versioned (temporal) history on core tables.
+- **FR-07.3**: Allow querying audit and temporal history by request_id and user_id.
+- **FR-07.4**: Reject write requests lacking user_id and request_id context.
+- **FR-08.1**: Implement patient, clinician, admin, and SRE roles with dedicated privileges.
+- **FR-08.2**: Enforce RLS for patient-only and facility-scoped data visibility.
+- **FR-08.3**: Restrict admin CRUD to application procedures while SRE has secured full access.
+- **FR-08.4**: Populate session context from JWT claims per request.
+- **FR-09.1**: Keep manifests, migrations, and configs in Git with versioned environments.
+- **FR-09.2**: Enable one-command (or Argo CD sync) environment rebuilds.
+- **FR-09.3**: Use idempotent forward-only database migrations with rollback scripts when feasible.
+- **FR-09.4**: Generate seed/demo data deterministically via pinned seeds and versions.
+- **FR-10.1**: Expose golden signals (availability, latency, error rate) for each API and shard.
+- **FR-10.2**: Emit SLO-window rollups and error-budget burn rates.
+- **FR-10.3**: Reference SLOs in alerts and trigger fast/slow burn thresholds.
+- **FR-11.1**: Provide SRE-only chaos interface for pod kill, node taint, failover, and latency tests.
+- **FR-11.2**: Annotate Grafana/Tempo during chaos runs to correlate experiments.
+- **FR-11.3**: Gate chaos operations to SRE role and log them in audit.
+- **FR-12.1**: Supply guided scenarios requiring traces/logs to resolve issues.
+- **FR-12.2**: Offer reviewer mode with checklists and expected signals.
+- **FR-12.3**: Export anonymized operator performance metrics (time-to-hypothesis, time-to-fix).
+- **FR-13.1**: Provide Grafana drill-down from SLO panel to trace exemplar to logs.
+- **FR-13.2**: Include trace/audit links in error logs.
+- **FR-13.3**: Surface database slow queries as traced spans with waits and query fingerprints.
+- **FR-14.1**: Implement outbox pattern for every transactional write.
+- **FR-14.2**: Process outbox/CDC streams idempotently to update read models.
+- **FR-14.3**: Version event schemas, maintain backward compatibility, and handle dead letters.
+- **FR-15.1**: Persist evidence of failures (stuck commands, projection lag, failed shard lookups).
+- **FR-15.2**: Expose dashboards for backlog depth, lag, retries, and dead-letter volume.
+- **FR-15.3**: Limit automatic retries and quarantine to dead-letter with alerts when max retries hit.
+- **FR-16.1**: Provide a request journey view across services, shard, events, and projections.
+- **FR-16.2**: Offer data lineage queries combining temporal history and audit events.
+- **FR-16.3**: Include narrative documentation and curl examples aligned with dashboards and traces.
+- **FR-16.4**: Ensure public artifacts share consistent glossary terms and IDs.
+- **FR-X.1**: Version all APIs, support JSON, and provide pagination/filtering/sorting for lists.
+- **FR-X.2**: Make write endpoints idempotent via Idempotency-Key or natural keys.
+- **FR-X.3**: Return structured problem details for validation errors and include request_id on server errors.
+- **FR-X.4**: Provide sensible config defaults, override via env/Helm, and avoid hardcoded secrets.
+- **FR-X.5**: Use UTC with ISO-8601 timestamps and align DB precision via datetime2.
+- **FR-X.6**: Enforce referential integrity and prefer soft deletes where auditability matters.
+- **FR-17.1**: Define retention policies for transactional tables, audit logs, and observability signals.
+- **FR-17.2**: Support data purging/archiving after retention windows via versioned procedures.
+- **FR-18.1**: Prevent destructive operations unless explicitly authorized and audited.
+- **FR-18.2**: Provide dry-run modes for migrations, shard remaps, and chaos rollout staging.
+
+## Non-Functional Requirements
+- **NFR-01**: Sustain ≥99.5% monthly availability (≥99.9% multi-node) for edge-api and core-api.
+- **NFR-02**: During SQL AG failover keep reads available (≤30 s brownout) and recover writes within 60 s.
+- **NFR-03**: Survive random single API pod kills without breaching availability SLO.
+- **NFR-04**: Compute error budget burn over 28-day windows with fast/slow burn alerts at 2%/5% per hour/day.
+- **NFR-05**: Provide ≥99.99% durability at the database level with synchronous replicas.
+- **NFR-06**: Keep GET latency at p50 ≤50 ms, p95 ≤200 ms, p99 ≤400 ms under nominal load.
+- **NFR-07**: Keep write latency at p50 ≤90 ms, p95 ≤300 ms, p99 ≤600 ms with synchronous audit outbox.
+- **NFR-08**: Deliver reporting reads at p95 ≤500 ms for patient scope and ≤2 s for facility scope.
+- **NFR-09**: Achieve cold start to ready ≤8 s and warm restart ≤2 s for API containers.
+- **NFR-10**: Drain command/outbox queues at ≥500 msgs per minute per worker with idempotent processing.
+- **NFR-11**: Support ≥1,000 RPS read-heavy or 200 RPS mixed workload, scaling linearly.
+- **NFR-12**: Support ≥5 million patient records per shard without schema changes.
+- **NFR-13**: Autoscale APIs between 1–5 replicas on CPU ≥60% or latency breach, scaling down after 5 idle minutes.
+- **NFR-14**: Return HTTP 429 with Retry-After when queues exceed thresholds; avoid unbounded memory growth.
+- **NFR-15**: Require JWT auth with ≤15-minute tokens and rotating signing keys.
+- **NFR-16**: Enforce least-privilege authorization via RLS, SQL roles, and guarded SRE procedures.
+- **NFR-17**: Keep secrets out of images/Git; use Kubernetes secrets and support key rotation.
+- **NFR-18**: Exclude or mask sensitive personal fields in telemetry unless explicitly allow-listed.
+- **NFR-19**: Retain audit/temporal history for ≥90 days (configurable to 365 days).
+- **NFR-20**: Maintain ≥95% trace coverage end-to-end even with sampling.
+- **NFR-21**: Ensure 100% of logs are structured JSON with trace/span/request/user/role/shard data.
+- **NFR-22**: Cap metrics label cardinality at ≤2,000 series per service to avoid TSDB issues.
+- **NFR-23**: Enable continuous profiling every 10 s with ≤3% CPU overhead.
+- **NFR-24**: Render Grafana dashboards within 3 s p95 and support trace jump-links via exemplars.
+- **NFR-25**: Support rolling zero-downtime deploys with max unavailable 1 and online DB migrations.
+- **NFR-26**: Provide at least one primary plus one synchronous replica per shard with failover ≤60 s.
+- **NFR-27**: Use SSD-class storage with ≥3,000 IOPS per replica and separate WAL/log volumes.
+- **NFR-28**: Reconcile cluster state from Git with drift detection ≤5 min and single-click rollbacks.
+- **NFR-29**: Perform nightly full + 15 min log backups and verify restores weekly.
+- **NFR-30**: Target RPO ≤15 min and RTO ≤30 min for single-shard incidents.
+- **NFR-31**: Link each alert to runnable, up-to-date runbooks with verification and rollback steps.
+- **NFR-32**: Track CPU/memory per request and synthetic cost per 1k requests in Grafana.
+- **NFR-33**: Allow non-critical workers to scale to zero after 10 min idle with predictable cache expiry.
+- **NFR-34**: Require SRE role, dry-run preview, and Grafana annotation for chaos experiments with defined blast radius/duration.
+- **NFR-35**: Auto-restore replicas/policies post-experiment and log summaries with request IDs.
+- **NFR-36**: Provide golden path workflows (feature creation, deploy, observe, debug) documented and enforced by defaults.
+- **NFR-37**: Make observability artifacts self-documenting, linking dashboards/traces/logs to relevant docs automatically.
