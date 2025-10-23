@@ -1,0 +1,10 @@
+FR-01.1|Generate Mockaroo-based seed datasets for patients, providers, facilities, encounters, diagnoses, procedures, medications, and claims|The system SHALL generate Mockaroo-based seed datasets for patients, providers, facilities, encounters, diagnoses, procedures, medications, and claims
+FR-01.2|The load generator SHALL simulate three user profiles (patient, clinician, admin) with configurable arrival rates, concurrency, and think-time|The load generator SHALL simulate three user profiles (patient, clinician, admin) with configurable arrival rates, concurrency, and think-time
+FR-01.3|Provide role-specific operation mixes (read % vs write %, heavy-read for patients, mixed for clinicians, admin-heavy maintenance)|The system SHALL provide role-specific operation mixes (read % vs write %, heavy-read for patients, mixed for clinicians, admin-heavy maintenance)
+FR-01.4|Support traffic shape presets (e|The system SHALL support traffic shape presets (e.g., weekday clinic peak, night lull, end-of-month billing burst)
+FR-01.5|The system SHOULD expose a single YAML profile to define dataset size, shard counts, and traffic patterns|The system SHOULD expose a single YAML profile to define dataset size, shard counts, and traffic patterns
+FR-02.1|All seed data MUST be synthetic, pseudonymized, and non-reversible to real individuals|All seed data MUST be synthetic, pseudonymized, and non-reversible to real individuals
+FR-02.2|Block ingestion of external identifiers beyond the defined synthetic schema|The platform SHALL block ingestion of external identifiers beyond the defined synthetic schema
+FR-02.3|Exports and logs SHALL exclude sensitive fields or present them in masked form per allowlist|Exports and logs SHALL exclude sensitive fields or present them in masked form per allowlist
+FR-02.4|Provide redaction for audit/event payloads where fields are not required for troubleshooting|The system SHALL provide redaction for audit/event payloads where fields are not required for troubleshooting
+FR-03.1|The APIs SHALL be stateless and horizontally scalable via HPA|The APIs SHALL be stateless and horizontally scalable via HPA

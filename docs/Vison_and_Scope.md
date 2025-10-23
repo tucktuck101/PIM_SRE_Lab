@@ -14,12 +14,17 @@ tags:
 
 ### Vision & Scope — Final Draft v2
 
-**Purpose**  
-Create a high-value, production-credible demo lab environment that SREs can use to **prove real technical competence** — not theory — through a system that demonstrates **reliability engineering, sharded database architecture, and full-fidelity observability** under load.
+#### Purpose
+
+Create a high-value, production-credible demo lab environment that SREs can
+use to **prove real technical competence** — not theory — through a system
+that demonstrates **reliability engineering, sharded database
+architecture, and full-fidelity observability** under load.
 
 ---
 
 ### Audience
+
 - **SREs** — junior to senior — demonstrating or sharpening production engineering skill  
 - **Engineers learning the Grafana MELTP stack** as an end-to-end observability platform  
 - **Recruiters and hiring managers** evaluating portfolio depth and readiness for real ops environments  
@@ -29,6 +34,7 @@ This is explicitly *not* a bootcamp toy or slide-ware — it must be believable 
 ---
 
 ### Scope (In)
+
 - U.S.-style national **health data spine** model  
 - Core entities only: **patients, providers, facilities, encounters, diagnoses, procedures, medications, billing**  
 - All seed data is **Mockaroo-generated, pseudonymized, HIPAA-safe**  
@@ -41,6 +47,7 @@ This is explicitly *not* a bootcamp toy or slide-ware — it must be believable 
 ---
 
 ### Explicitly Out of Scope (anti-scope-creep guardrail)
+
 - **No real PHI** — never touches real patient/customer data  
 - **No rich Web UI / EHR-style frontend** — API-only by design  
 - **No HL7/FHIR interoperability** — simulated data only  
@@ -51,6 +58,7 @@ This is explicitly *not* a bootcamp toy or slide-ware — it must be believable 
 ---
 
 ### Success Criteria (measurable, SRE-appropriate)
+
 - System **survives arbitrary pod kill** on single-node Kubernetes without data loss  
 - All **writes are auditable to user_id + request_id**, and reconstructable from event history  
 - **Trace → Log → Metric correlation is provable in Grafana** within one click from Tempo to Loki to Mimir  

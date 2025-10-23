@@ -18,20 +18,28 @@ dependencies:
 > **Example Header:** `ADR-012 — Adopt Service Broker for Asynchronous Commands`
 
 # Context
-> Describe the driving forces, constraints, and background prompting this decision. Reference any related RFCs, design docs, or incidents.
 
-## Decision
+> Describe the driving forces, constraints, and background prompting this
+> decision. Reference any related RFCs, design docs, or incidents.
+
+{heading}
+
 > Provide the concise decision statement in ≤ 200 characters.
 
-## Consequences
+{heading}
+
 > List the positive, negative, and neutral outcomes expected from this decision.
 
-## Rejected Options
+{heading}
+
 > Summarize alternative options considered and why they were not selected.
 
-## Links
+{heading}
+
 > Reference supporting materials (design docs, RFCs, issues) and specify their revision or commit.
 
 ---
 
-_Last updated: 2024-05-18 (update before publishing)_
+_#### Notes
+
+Last updated: 2024-05-18 (update before publishing)_

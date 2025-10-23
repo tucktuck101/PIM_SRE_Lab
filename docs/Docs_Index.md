@@ -23,12 +23,44 @@ from front matter when present; files without front matter display `N/A`.
 | Business Requirements | [docs/Requirements/Business_Requirements.md](Requirements/Business_Requirements.md) | Business objectives and success criteria for the lab. | N/A |
 | Functional Requirements | [docs/Requirements/Functional_Requirements.md](Requirements/Functional_Requirements.md) | Functional capabilities required across services. | N/A |
 | Non-Functional Requirements | [docs/Requirements/Non_functional_requirements.md](Requirements/Non_functional_requirements.md) | Reliability, performance, and compliance expectations. | N/A |
+| Requirements Index | [docs/Requirements/00_requirements-index.md](Requirements/00_requirements-index.md) | Canonical list of BR/FR/NFR with stable IDs and owners. | N/A |
+| Traceability Matrix | [docs/Requirements/01_traceability-matrix.md](Requirements/01_traceability-matrix.md) | Mapping of each requirement to design docs, tests, SLOs, and telemetry. | N/A |
 
-## Architecture
+## Architecture — Core System Design
 
 | Document | Path | Description | Last Updated |
 | --- | --- | --- | --- |
 | Vision and Scope | [docs/Vison_and_Scope.md](Vison_and_Scope.md) | High-level product vision, scope boundaries, and success metrics. | N/A |
+| C4: System Context (L1) | [docs/Architecture/01_c4-l1-system-context.md](Architecture/01_c4-l1-system-context.md) | Actors, trust boundaries, and external interactions. | N/A |
+| C4: Containers (L2) | [docs/Architecture/02_c4-l2-containers.md](Architecture/02_c4-l2-containers.md) | Deployable services, data stores, and network paths per cluster. | N/A |
+| C4: Components (L3) | [docs/Architecture/03_c4-l3-components.md](Architecture/03_c4-l3-components.md) | Internal components and data/control flow per service. | N/A |
+| Runtime Sequence Catalog | [docs/Architecture/05_runtime-sequence-catalog.md](Architecture/05_runtime-sequence-catalog.md) | Key runtime flows: booking, encounter, billing, failover. | N/A |
+| Domain Context Map | [docs/Architecture/10_domain-context-map.md](Architecture/10_domain-context-map.md) | Bounded contexts and upstream/downstream relationships. | N/A |
+| Domain Model (UML) | [docs/Architecture/11_domain-model-uml.md](Architecture/11_domain-model-uml.md) | Logical domain entities and relations, pre-SQL. | N/A |
+| API Surface | [docs/Architecture/17_api-surface.md](Architecture/17_api-surface.md) | Public/internal APIs, versioning, idempotency, and error contracts. | N/A |
+
+## Architecture — Infrastructure & Reliability
+
+| Document | Path | Description | Last Updated |
+| --- | --- | --- | --- |
+| Infrastructure Architecture | [docs/Architecture/infrastructure-architecture.md](Architecture/infrastructure-architecture.md) | End-to-end infra for two kubeadm clusters and inter-cluster networking. | N/A |
+| Kubernetes Topology | [docs/Architecture/40_k8s-topology.md](Architecture/40_k8s-topology.md) | Namespaces, ingress, services, node pools, and autoscaling. | N/A |
+| Storage Topology | [docs/Architecture/13_storage-topology.md](Architecture/13_storage-topology.md) | Datastores, replicas, shard/partition keys, and backups. | N/A |
+| Availability & DR Topology | [docs/Architecture/30_availability-dr-topology.md](Architecture/30_availability-dr-topology.md) | HA layout, RPO/RTO targets, and failover drills. | N/A |
+| Release Strategy | [docs/Architecture/41_release-strategy.md](Architecture/41_release-strategy.md) | CI/CD branching, promotion, rollback, and provenance. | N/A |
+
+## Architecture — Events & Data Movement
+
+| Document | Path | Description | Last Updated |
+| --- | --- | --- | --- |
+| Event Architecture | [docs/Architecture/14_event-architecture.md](Architecture/14_event-architecture.md) | Outbox, topics/queues, schemas, retention, retries, and DLQ. | N/A |
+
+## Architecture — Observability
+
+| Document | Path | Description | Last Updated |
+| --- | --- | --- | --- |
+| Observability Signal Dictionary | [docs/Architecture/50_observability-signal-dictionary.md](Architecture/50_observability-signal-dictionary.md) | Metrics, logs, traces per component with naming and cardinality rules. | N/A |
+| SLI/SLO Measurement Plan | [docs/Architecture/51_sli-slo-measurement-plan.md](Architecture/51_sli-slo-measurement-plan.md) | SLIs, targets, windows, burn alerts, and runbooks. | N/A |
 
 ## Data
 
@@ -61,4 +93,4 @@ from front matter when present; files without front matter display `N/A`.
 
 ---
 
-Last reviewed: 2024-05-18.
+Last reviewed: 2025-10-23.
