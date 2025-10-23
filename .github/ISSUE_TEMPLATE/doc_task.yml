@@ -1,0 +1,81 @@
+name: Documentation Task
+description: Request or track documentation work
+labels: ['docs']
+title: 'DOC: '
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: Scope
+      description: Describe the scope of the work and affected areas.
+      placeholder: Update glossary definitions for MELTP signals.
+    validations:
+      required: true
+  - type: input
+    id: target_path
+    attributes:
+      label: Target File Path(s)
+      description: Provide relative paths. Use naming convention `^\d{2}_[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)*\.md$` for new docs.
+      placeholder: docs/02_Glossary.md
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources / References
+      description: List supporting materials (requirements, ADRs, RFCs, runbooks).
+      placeholder: |
+        - docs/Requirements/Functional_Requirements.md
+        - ADR-012
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Provide measurable criteria for completion.
+      placeholder: |
+        - Glossary entry added with link to runbook
+        - Vale and markdownlint pass
+    validations:
+      required: true
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Document Type
+      multiple: false
+      options:
+        - design_doc
+        - adr
+        - rfc
+        - runbook
+        - glossary
+        - policy
+      description: Select the intended template category.
+    validations:
+      required: true
+  - type: dropdown
+    id: blocked_by
+    attributes:
+      label: Blocked By (optional)
+      description: Select dependencies if this work is blocked.
+      multiple: true
+      options:
+        - docs/03_Style_Guide.md
+        - docs/03a_Naming_And_Filenames.md
+        - docs/35_Templates_Index.md
+        - docs/04_GPT5_Working_Agreement.md
+  - type: checkboxes
+    id: filename_ack
+    attributes:
+      label: Filename Convention Acknowledgment
+      options:
+        - label: I confirm new files will follow the required naming pattern.
+          required: true
+  - type: checkboxes
+    id: id_registry_ack
+    attributes:
+      label: ID Registry Update
+      options:
+        - label: I will register new IDs or confirm none are required.
+          required: true

@@ -1,0 +1,10 @@
+title: PIM SRE Documentation Style Guide
+doc_type: style_guide
+status: draft
+version: 1.0.0
+owners:
+  - docs@pim-sre.lab
+last_updated: 2024-05-18
+tags:
+  - documentation
+  - style

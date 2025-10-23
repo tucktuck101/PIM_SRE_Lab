@@ -1,0 +1,19 @@
+[
+  "Purpose",
+  "Scope and Non-Goals",
+  "Context and Constraints",
+  "Architecture Overview",
+  "Components",
+  "Interfaces and Contracts",
+  "Data Model",
+  "Security and Privacy",
+  "Reliability and Observability",
+  "Capacity and Performance",
+  "Failure Modes and Risks",
+  "Alternatives",
+  "Decision and Rationale",
+  "Rollout and Operations",
+  "Testing and Verification",
+  "Open Questions",
+  "Appendix"
+]
